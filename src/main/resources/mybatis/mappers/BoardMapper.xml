@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.mappers.BoardMapper">
+	<!-- 글 쓰기 -->
+	<insert id="writeBoard" parameterType="com.example.test.dto.BoardDTO">
+		insert into freeboard(title, reg_name, content)
+		values(#{title}, #{reg_name}, #{content})
+	</insert>
+	
+	<!-- 글 갯수 계산 -->
+	<select id="countBoard" resultType="Integer">
+		select count(idx)
+		from freeboard
+		where idx > 0
+	</select>
+	
+	<!-- 글 내용 보기 -->
+	<select id="readBoard" parameterType="int" resultType="com.example.test.dto.BoardDTO">
+		select idx, title, reg_name, content, w_date, hit
+		from freeboard
+		where idx=#{idx}
+	</select>
+	
+	<!-- 글 수정 -->
+	<update id="updateBoard" parameterType="com.example.test.dto.BoardDTO">
+		update freeboard
+		set title=#{title}, reg_name=#{reg_name}, content=#{content}
+		where idx=#{idx}
+	</update>
+	
+	<!-- 글 삭제 -->
+	<delete id="deleteBoard" parameterType="Integer">
+		delete from freeboard
+		where idx=#{idx}
+	</delete>
+	
+	<!-- 글 목록 조회 -->
+	<select id="selectAllBoards" resultType="com.example.test.dto.BoardDTO">
+		select idx, title, reg_name, content, w_date, hit
+		from freeboard
+		where idx > 0 order by idx desc
+	</select>
+	
+	<!-- 글 내용 검색 -->
+	<select id="selectBoardContent" parameterType="String" resultType="com.example.test.dto.BoardDTO">
+    SELECT * FROM freeboard 
+    WHERE content LIKE CONCAT('%', #{content}, '%')
+	</select>
+	
+	
+	<!-- 댓글 쓰기 -->
+	<insert id="insertReply" parameterType="com.example.test.dto.ReplyDTO">
+    	INSERT INTO replyboard (src_idx, step, ref, depth, reg_name, content, w_date)
+    	VALUES (#{src_idx}, #{step}, #{ref}, #{depth}, #{reg_name}, #{content}, NOW())
+	</insert>
+	
+	
+	<select id="selectReplyById" parameterType="int" resultType="com.example.test.dto.ReplyDTO">
+    SELECT * FROM replyboard WHERE rep_idx = #{rep_idx}
+	</select>
+	<!-- 게시글에 대한 댓글 조회 -->
+	<select id="selectRepliesBySrcIdx" parameterType="int" resultType="com.example.test.dto.ReplyDTO">
+    	SELECT * FROM replyboard WHERE src_idx = #{src_idx} ORDER BY ref DESC, step ASC
+    	<!--SELECT * FROM replyboard WHERE rep_idx = #{rep_idx}-->
+	</select>
+
+	<!-- 댓글 수정 -->
+	<update id="updateReply" parameterType="com.example.test.dto.ReplyDTO">
+    	UPDATE replyboard SET content = #{content} WHERE rep_idx = #{rep_idx}
+	</update>
+
+	<!-- 댓글 삭제 -->
+	<delete id="deleteReply" parameterType="int">
+    	DELETE FROM replyboard WHERE rep_idx = #{rep_idx}
+	</delete>
+	
+	<!--selectMaxStepByRef-->
+	<select id="selectMaxStep" parameterType="int" resultType="int">
+        SELECT COALESCE(MAX(step), 0) FROM replyboard WHERE ref = #{ref}
+    </select>
+    
+    <select id="selectMaxStepByRef" parameterType="int" resultType="int">
+        SELECT COALESCE(MAX(step), 0) FROM replyboard WHERE ref = #{ref}
+    </select>
+	
+	<update id="updateReplyRef" parameterType="com.example.test.dto.ReplyDTO">
+    UPDATE replyboard
+    SET ref = #{rep_idx}
+    WHERE rep_idx = #{rep_idx}
+	</update>
+
+	
+	
+	
+	
+	
+	
+
+	
+	
+
+</mapper>
