@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+/*회원가입
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -17,12 +18,12 @@ function Signup() {
         axios.post('/api/member/signup', memberInfo)
             .then(response => {
                 alert('회원가입 성공!');
-                // 회원가입 성공 후 로직, 예: 로그인 페이지로 리디렉션
+
             })
             .catch(error => {
                 console.error("Signup failed: ", error);
                 alert('회원가입 실패');
-                // 회원가입 실패 처리, 예: 에러 메시지 표시
+
             });
     };
 
@@ -44,11 +45,11 @@ function Signup() {
     );
 }
 
-export default Signup;
+export default Signup;*/
 
 
 
-/*import React, { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 function Login() {
@@ -93,7 +94,7 @@ function Login() {
     );
 }
 
-export default Login;*/
+export default Login;
 
 /* 게시판 리스트 컨트롤러
 import React, { useEffect, useState } from 'react';
