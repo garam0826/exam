@@ -1,4 +1,14 @@
-import logo from './logo.svg';
+import {RouterProvider} from "react-router-dom";
+import root from './root';
+
+function App(){
+    return(
+        <RouterProvider router={root}/>
+    );
+}
+
+export  default App;
+/*import logo from './logo.svg';
 import './App.css';
 
 import React, { useState } from 'react';
@@ -72,7 +82,7 @@ function Signup() {
     );
 }
 
-export default Signup;
+export default Signup;*/
 
 
 
