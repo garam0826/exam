@@ -1,18 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
-/*회원가입
+
 import React, { useState } from 'react';
 import axios from 'axios';
 
 function Signup() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [realname, setRealname] = useState('');
+    const [userbirth, setUserbirth] = useState('');
+    const [userphone, setUserphone] = useState('');
+    const [useremail, setUseremail] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const memberInfo = {
             mem_id: username,
-            mem_pw: password
+            mem_pw: password,
+            mem_name: realname,
+            birth : userbirth,
+            phone : userphone,
+            email : useremail
+
+
         };
 
         axios.post('/api/member/signup', memberInfo)
@@ -39,17 +49,34 @@ function Signup() {
                     Password:
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
+
+                <label>
+                    name:
+                    <input type="text" value={realname} onChange={(e) => setRealname(e.target.value)} />
+                </label>
+                <label>
+                    birth:
+                    <input type="text" value={userbirth} onChange={(e) => setUserbirth(e.target.value)} />
+                </label>
+                <label>
+                    phone:
+                    <input type="text" value={userphone} onChange={(e) => setUserphone(e.target.value)} />
+                </label>
+                <label>
+                    email:
+                    <input type="text" value={useremail} onChange={(e) => setUseremail(e.target.value)} />
+                </label>
                 <button type="submit">Signup</button>
             </form>
         </div>
     );
 }
 
-export default Signup;*/
+export default Signup;
 
 
 
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import axios from 'axios';
 
 function Login() {
@@ -94,7 +121,7 @@ function Login() {
     );
 }
 
-export default Login;
+export default Login;*/
 
 /* 게시판 리스트 컨트롤러
 import React, { useEffect, useState } from 'react';
