@@ -77,7 +77,7 @@ public class MemberServiceImple implements MemberService{
 		return result;
 	}
 	
-	@Override
+	/*@Override
 	public boolean login(String mem_id, String mem_pw) throws Exception{
 		boolean result = false;
 		
@@ -90,6 +90,25 @@ public class MemberServiceImple implements MemberService{
 		}
 		
 		
+	}*/
+
+	@Override
+	public MemberDTO login(MemberDTO memberDTO) throws Exception {
+
+		String mem_id = memberDTO.getMem_id();
+		String mem_pw = memberDTO.getMem_pw();
+
+		// DB에서 해당 mem_id의 비밀번호 조회
+		String db_pw = memberDAO.selectPw(mem_id);
+
+
+		if (db_pw != null && db_pw.equals(mem_pw)) {
+
+			return memberDTO;
+		} else {
+
+			return null;
+		}
 	}
 	
 

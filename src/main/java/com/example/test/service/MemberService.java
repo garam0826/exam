@@ -21,6 +21,9 @@ public interface MemberService {
 	// 회원정보 수정
 	public int updateMember(MemberDTO memberDTO) throws Exception;
 	
-	//로그인
-	public boolean login(String mem_id, String mem_pw) throws Exception;
+	/*//로그인
+	public boolean login(String mem_id, String mem_pw) throws Exception;*/
+
+	//별로의 파라미터로 안넘기고 MemberDTO 객체 하나로 전달, 위처럼 하려면 controller를 수정하면되긴함.
+	public MemberDTO login(MemberDTO memberDTO) throws Exception;
 }

@@ -13,7 +13,7 @@ public class BoardDAOImple implements BoardDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	private static String namespace= "com.toyproject.mappers.BoardMapper";
+	private static String namespace= "com.exam.mappers.BoardMapper";
 	
 	//글 쓰기
 	@Override

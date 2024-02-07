@@ -79,3 +79,11 @@ task copyReactBuildFiles(type: Copy) {
     from "$frontendDir/build"
     into "$projectDir/src/main/resources/static"
 }
+
+task runPythonScript(type: Exec) {
+    workingDir "$projectDir/scripts"
+    commandLine 'python', 'springTest.py'
+}
+
+// 빌드 프로세스 중에 파이썬 스크립트 태스크를 실행하도록
+build.dependsOn runPythonScript

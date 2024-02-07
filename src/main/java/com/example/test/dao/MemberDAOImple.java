@@ -16,7 +16,7 @@ public class MemberDAOImple implements MemberDAO{
 	private SqlSession sqlSession;
 	
 	// Mapper namespace 지정 (mapper 파일에서 그대로 가져와서 복붙)
-	private static String namespace = "com.toyproject.mappers.MemberMapper";
+	private static String namespace = "com.exam.mappers.MemberMapper";
 	
 	//회원가입
 	@Override
