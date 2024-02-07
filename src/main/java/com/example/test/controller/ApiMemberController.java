@@ -34,5 +34,22 @@ public class ApiMemberController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    // 회원가입 API
+    @PostMapping("/signup")
+    public ResponseEntity<String> signup(@RequestBody MemberDTO memberDTO) {
+        try {
+            int result = memberService.insertMember(memberDTO);
+            if (result > 0) {
+                return new ResponseEntity<>("회원가입 성공", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("회원가입 실패", HttpStatus.BAD_REQUEST);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
 
