@@ -1,29 +1,41 @@
 package com.example.test.service;
 
-import javax.annotation.PostConstruct;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class PythonScriptRunner {
+@Component
+public class PythonScriptRunner implements CommandLineRunner {
 
-    private static final String SCRIPT_PATH = "src/main/resources/scripts/springTest.py";
-
-    @PostConstruct
-    public void runScript() {
+    @Override
+    public void run(String... args) throws Exception {
         try {
-            ProcessBuilder processBuilder = new ProcessBuilder("python", SCRIPT_PATH);
-            Process process = processBuilder.start();
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String scriptPath = "scripts/springTest.py";
+
+            // Python 인터프리터와 스크립트를 실행하는 명령어 구성
+            String[] command = new String[] {"python", scriptPath};
+
+            // Python 스크립트 실행
+            Process process = Runtime.getRuntime().exec(command);
+
+            // 스크립트 실행 결과 로그 출력 (확인용으로)
+            InputStream inputStream = process.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
 
+            // 프로세스 종료 대기
             int exitCode = process.waitFor();
-            System.out.println("Exited with code: " + exitCode);
+            System.out.println("Python script executed with exit code: " + exitCode);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+

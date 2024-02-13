@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 //연결을 해야하니까, 필요한 것을 어노테이션으로 작성을 해야함. (이 클래스가 컨트롤러인지 인식을 함)
 @Controller
 //경로를 중간에 멤버가 들어오는게 있으면 membercontroller랑 연결해라.
-@RequestMapping("/member/")
+@RequestMapping("/member2/")
 public class MemberController {
 	//멤버 컨트롤러의 세부경로는 각 메서드마다 코딩을 해주면 됨.
 	
