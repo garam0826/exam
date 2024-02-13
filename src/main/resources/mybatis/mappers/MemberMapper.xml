@@ -42,8 +42,13 @@
 		set mem_pw=#{mem_pw}, mem_name=#{mem_name}, birth=#{birth}, phone=#{phone}, email=#{email}
 		where mem_id=#{mem_id}
 	</update>
-	
-	
-	
-	
+
+	<select id="selectMemberByNameAndBirth" parameterType="map" resultType="MemberDTO">
+		SELECT * FROM member
+		WHERE mem_name = #{mem_name} AND birth = #{birth}
+	</select>
+
+
+
+
 </mapper>

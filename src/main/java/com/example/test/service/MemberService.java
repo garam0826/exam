@@ -26,4 +26,7 @@ public interface MemberService {
 
 	//별로의 파라미터로 안넘기고 MemberDTO 객체 하나로 전달, 위처럼 하려면 controller를 수정하면되긴함.
 	public MemberDTO login(MemberDTO memberDTO) throws Exception;
+
+	public MemberDTO findMemberIdByNameAndBirth(String mem_name, String birth) throws Exception;
+
 }

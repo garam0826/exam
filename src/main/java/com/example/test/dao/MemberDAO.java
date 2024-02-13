@@ -23,7 +23,8 @@ public interface MemberDAO {
 	
 	// 회원정보 수정
 	public int updateMember(MemberDTO memberDTO) throws Exception;
-	
-	
+
+	//아이디 찾기
+	public MemberDTO selectMemberByNameAndBirth(String mem_name, String birth) throws Exception;
 	
 }
