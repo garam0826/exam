@@ -110,6 +110,11 @@ public class MemberServiceImple implements MemberService{
 			return null;
 		}
 	}
+
+	// 아이디 찾기
+	public MemberDTO findMemberIdByNameAndBirth(String mem_name, String birth) throws Exception {
+		return memberDAO.selectMemberByNameAndBirth(mem_name, birth);
+	}
 	
 
 }

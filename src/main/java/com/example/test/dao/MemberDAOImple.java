@@ -1,12 +1,12 @@
 package com.example.test.dao;
 
 import com.example.test.dto.MemberDTO;
-
 import org.apache.ibatis.session.SqlSession;
-
-//spring관련 annotation , repository, autoweired(의존성 주입)
-import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Repository
@@ -71,6 +71,18 @@ public class MemberDAOImple implements MemberDAO{
 		System.out.println(memberDTO.getMem_id()+ " : 회원정보 수정 성공");
 		
 		return result;
+	}
+
+	//아이디 찾기
+	public MemberDTO selectMemberByNameAndBirth(String mem_name, String birth) throws Exception{
+		Map<String, Object> params = new HashMap<>();
+		params.put("mem_name", mem_name);
+		params.put("birth", birth);
+
+		MemberDTO memberDTO = sqlSession.selectOne(namespace+ ".selectMemberByNameAndBirth", params);
+		System.out.println("아이디 찾기 성공");
+
+		return memberDTO;
 	}
 	
 }

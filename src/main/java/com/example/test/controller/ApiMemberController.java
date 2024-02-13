@@ -96,7 +96,21 @@ public class ApiMemberController {
         }
     }
 
-    //아이디 찾기(/searchid)
+    //아이디 찾기
+    @GetMapping("/searchid")
+    public ResponseEntity<?> findMemberId(@RequestParam String mem_name, @RequestParam String birth) {
+        try {
+            MemberDTO member = memberService.findMemberIdByNameAndBirth(mem_name, birth);
+            if (member != null) {
+                return new ResponseEntity<>(member.getMem_id(), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("이름과 생년월일을 다시 확인해보세요", HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     //비밀번호 찾기(/searchpw)
 
