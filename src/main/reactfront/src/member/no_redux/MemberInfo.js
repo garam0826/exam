@@ -23,7 +23,7 @@ function MemberInfo() {
     const handleGetMemberInfo = async () => {
         //alert(memId); //memId 입력 테스트
         try {
-            const response = await axios.get(`/member/mypage//myinfo/${memId}`);
+            const response = await axios.get(`/member/mypage/myinfo/${memId}`);
             if (response.data) {
                 setMemberInfo(response.data);
                 setNewMemberInfo(response.data);
@@ -40,7 +40,7 @@ function MemberInfo() {
 
     const handleUpdateMember = async () => {
         try {
-            const response = await axios.put('/member//mypage/myedit', newMemberInfo);
+            const response = await axios.put('/member/mypage/myedit', newMemberInfo);
             setUpdateMessage(response.data);
             alert('회원정보 수정 성공!');
         } catch (error) {

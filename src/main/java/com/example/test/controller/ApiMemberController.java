@@ -65,7 +65,7 @@ public class ApiMemberController {
     }
 
     //회원정보 조회
-    @GetMapping("/mypage//myinfo/{mem_id}")
+    @GetMapping("/mypage/myinfo/{mem_id}")
     public ResponseEntity<MemberDTO> getMemberInfo(@PathVariable String mem_id) {
         try {
             MemberDTO memberInfo = memberService.selectMember(mem_id);
