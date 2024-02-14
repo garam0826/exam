@@ -5,14 +5,15 @@ import Login from "./member/Login";
 import Mainpage from "./Mainpage";
 
 const Loading = <div>Loading...</div>
-const Main = lazy(() => import("../src/Mainpage"))
 const Login1 = lazy(() => import("../src/member/Login"))
 const SignUp = lazy(() => import("../src/member/Signup"))
+const Memberinfo  = lazy(() => import("../src/member/no_redux/MemberInfo"))
 
+const Board = lazy(() => import("../src/board/BoardList"))
 const root = createBrowserRouter([
     {
         path: "",
-        element: <Suspense fallback ={Loading}><Main/></Suspense>
+        element: <Suspense fallback ={Loading}><Mainpage/></Suspense>
     },
     {
         path: "login",
@@ -21,6 +22,14 @@ const root = createBrowserRouter([
     {
         path: "signup",
         element: <Suspense fallback ={Loading}><SignUp/></Suspense>
+    },
+    {
+        path: "board",
+        element: <Suspense fallback ={Loading}><Board/></Suspense>
+    },
+    {
+        path: "memberinfo",
+        element: <Suspense fallback ={Loading}><Memberinfo/></Suspense>
     }
 ])
 

@@ -14,15 +14,14 @@ const Mainpage = () => {
             <hr/>
             [ SignUp ]
             <button onClick={() => navigate("/signup")}>회원가입</button>
+            <hr/>
+            <hr/>
+            [[ 게시판으로 이동 >> ]]
+            <button onClick={() => navigate("/board")}>게시판 >></button>
+            <hr/>
+            [[ 회원정보 테스트 ]]
+            <button onClick={() => navigate("/memberinfo")}> my page >> </button>
         </div>
-
-
-        /*<div>
-            <Link to={'/login'}>Login</Link>
-        </div>*!/
-        <div>
-            <Link to={'/signup'}>SignUp</Link>
-        </div>*/
     );
 }
 
