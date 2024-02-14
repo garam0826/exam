@@ -11,7 +11,7 @@ function Login() {
             mem_pw: password
         };
 
-        axios.post('/api/member/login', memberInfo)
+        axios.post('/member/login', memberInfo)
             .then(response => {
                 console.log(response.data);
                 alert('로그인 성공!');

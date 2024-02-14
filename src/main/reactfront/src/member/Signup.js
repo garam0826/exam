@@ -25,7 +25,7 @@ function Signup() {
 
         };
 
-        axios.post('/api/member/signup', memberInfo)
+        axios.post('/member/signup', memberInfo)
             .then(response => {
                 alert('회원가입 성공!');
                 navigate("/login");
