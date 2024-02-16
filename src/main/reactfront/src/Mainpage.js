@@ -20,9 +20,12 @@ const Mainpage = () => {
             <button onClick={() => navigate("/board")}>게시판 >></button>
             <hr/>
             [[ 회원정보 테스트 ]]
-            <button onClick={() => navigate("/memberinfo")}> my page >> </button>
+            <button onClick={() => navigate("/myinfo")}> my page >> </button>
+            <hr/>
+            [[ 회원 탈퇴 (only 확인) ]]
+            <button onClick={() => navigate("/resign")}> my page >> </button>
         </div>
     );
 }
 
-export  default  Mainpage;
+export default Mainpage;

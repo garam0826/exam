@@ -8,6 +8,8 @@ const Loading = <div>Loading...</div>
 const Login1 = lazy(() => import("../src/member/Login"))
 const SignUp = lazy(() => import("../src/member/Signup"))
 const Memberinfo  = lazy(() => import("../src/member/no_redux/MemberInfo"))
+const Memberresign= lazy(() => import("../src/member/no_redux/MemberResign"))
+const Findid = lazy(() => import("../src/member/no_redux/FindId"))
 
 const Board = lazy(() => import("../src/board/BoardList"))
 const root = createBrowserRouter([
@@ -28,8 +30,16 @@ const root = createBrowserRouter([
         element: <Suspense fallback ={Loading}><Board/></Suspense>
     },
     {
-        path: "memberinfo",
+        path: "myinfo",
         element: <Suspense fallback ={Loading}><Memberinfo/></Suspense>
+    },
+    {
+        path: "resign",
+        element: <Suspense fallback ={Loading}><Memberresign/></Suspense>
+    },
+    {
+        path: "searchid",
+        element: <Suspense fallback ={Loading}><Findid/></Suspense>
     }
 ])
 
