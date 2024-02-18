@@ -19,14 +19,8 @@ const Mainpage = () => {
             [[ 게시판으로 이동 >> ]]
             <button onClick={() => navigate("/board")}>게시판 >></button>
             <hr/>
-            [[ 회원정보 테스트 ]]
-            <button onClick={() => navigate("/myinfo")}> my page >> </button>
-            <hr/>
-            [[ 회원 탈퇴 (only 확인) ]]
-            <button onClick={() => navigate("/resign")}> my page >> </button>
-            <hr/>
             [[ animal api 확인 ]]
-            <button onClick={() => navigate("/animal")}> my page >> </button>
+            <button onClick={() => navigate("/animal")}>animal >> </button>
         </div>
     );
 }
