@@ -148,8 +148,6 @@ function MyPage() {
                             {message && <p>{message}</p>}
                             {error && <p>{error}</p>}
                         </form>
-                        <hr/>
-                        <button type="button" onClick={() => navigate("/")}>메인화면으로</button>
                     </div>
                 )}
             </div>
