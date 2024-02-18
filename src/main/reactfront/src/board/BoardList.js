@@ -1,9 +1,11 @@
 //게시판 리스트 컨트롤러
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate} from "react-router-dom";
 
 function BoardList() {
     const [boards, setBoards] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // API 호출
@@ -22,9 +24,17 @@ function BoardList() {
             <h2>게시글 목록</h2>
             <ul>
                 {boards.map(board => (
-                    <li key={board.idx}>{board.title} - {board.reg_name}</li>
+                    <li key={board.idx}>
+                        <Link to={`board/${board.idx}`}>{board.title}</Link> - {board.reg_name}
+                    </li>
                 ))}
             </ul>
+            <div>
+                <button onClick={() =>
+                    navigate("/write")}>
+                    글 작성하기
+                </button>
+            </div>
         </div>
     );
 }

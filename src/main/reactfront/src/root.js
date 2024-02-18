@@ -3,6 +3,9 @@ import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Login from "./member/Login";
 import Mainpage from "./Mainpage";
+import ModifyContent from "./board/ModifyContent";
+import ReadContent from "./board/ReadContent";
+import AddContent from "./board/AddContent";
 
 const Loading = <div>Loading...</div>
 const Login1 = lazy(() => import("../src/member/Login"))
@@ -50,6 +53,18 @@ const root = createBrowserRouter([
     {
         path: "mypage",
         element: <Suspense fallback ={Loading}><Mypage/></Suspense>
+    },
+    {
+        path: "read",
+        element: <Suspense fallback ={Loading}><ReadContent/></Suspense>
+    },
+    {
+        path: "write",
+        element: <Suspense fallback ={Loading}><AddContent/></Suspense>
+    },
+    {
+        path: "modify",
+        element: <Suspense fallback ={Loading}><ModifyContent/></Suspense>
     }
 ])
 
