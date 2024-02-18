@@ -10,6 +10,7 @@ const SignUp = lazy(() => import("../src/member/Signup"))
 const Memberinfo  = lazy(() => import("../src/member/no_redux/MemberInfo"))
 const Memberresign= lazy(() => import("../src/member/no_redux/MemberResign"))
 const Findid = lazy(() => import("../src/member/no_redux/FindId"))
+const Animalinfo= lazy(() => import("../src/animal/animalInfo"))
 
 const Board = lazy(() => import("../src/board/BoardList"))
 const root = createBrowserRouter([
@@ -40,6 +41,10 @@ const root = createBrowserRouter([
     {
         path: "searchid",
         element: <Suspense fallback ={Loading}><Findid/></Suspense>
+    },
+    {
+        path: "animal",
+        element: <Suspense fallback ={Loading}><Animalinfo/></Suspense>
     }
 ])
 
