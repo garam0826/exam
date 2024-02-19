@@ -7,7 +7,7 @@ const AnimalInfo = () => {
     const [error, setError] = useState(null);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-    const [upkind, setUpkind] = useState('');
+    const [kind, setKind] = useState('');
     const [uprCd, setUprCd] = useState('');
     const [orgCd, setOrgCd] = useState('');
 
@@ -15,7 +15,7 @@ const AnimalInfo = () => {
         try {
             setLoading(true);
             setError(null);
-            const response = await axios.get(`/api/animal/info?startDate=${startDate}&endDate=${endDate}&upkind=${upkind}&uprCd=${uprCd}&orgCd=${orgCd}`);
+            const response = await axios.get(`/api/animal/info?startDate=${startDate}&endDate=${endDate}&kind=${kind}&uprCd=${uprCd}&orgCd=${orgCd}`);
             setAnimalInfos(response.data);
         } catch (error) {
             console.error('Error fetching animal info:', error);
@@ -37,8 +37,8 @@ const AnimalInfo = () => {
                 <input type="text" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
             </div>
             <div>
-                <label>Upkind:</label>
-                <input type="text" value={upkind} onChange={(e) => setUpkind(e.target.value)} />
+                <label>kind:</label>
+                <input type="text" value={kind} onChange={(e) => setKind(e.target.value)} />
             </div>
             <div>
                 <label>UprCd:</label>

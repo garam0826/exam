@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class AnimalInfoService {
 
-    public List<AnimalInfo> getAnimalInfo(String startDate, String endDate, String upkind, String uprCd, String orgCd) {
+    public List<AnimalInfo> getAnimalInfo(String startDate, String endDate, String kind, String uprCd, String orgCd) {
 
         List<AnimalInfo> animalInfoList = new ArrayList<>();
 
@@ -23,8 +23,8 @@ public class AnimalInfoService {
                 .queryParam("serviceKey", "XoUKvRBvuJnQoblCd23mVs4%2F4%2FwBHivSh8CpK47qsUpJViqLxxEjo2BOEF18WpLUqBID%2FxnnJMNq8NdiDf83pw%3D%3D")
                 .queryParam("bgnde", startDate)
                 .queryParam("endde", endDate)
-                .queryParam("upkind", upkind)
-                .queryParam("kind", "000114") // 강이지 코드로 고정
+                .queryParam("upkind", "417000")  // 강이지 코드로 고정
+                .queryParam("kind", kind) // 변수 오기입 수정
                 .queryParam("upr_cd", uprCd)
                 .queryParam("org_cd", orgCd)
                 .queryParam("care_reg_no", "311322200900001") // 일단 아무 보호소 코드 입력

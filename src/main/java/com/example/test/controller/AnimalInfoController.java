@@ -22,11 +22,11 @@ public class AnimalInfoController {
     public ResponseEntity<List<AnimalInfo>> getAnimalInfo(
             @RequestParam String startDate,
             @RequestParam String endDate,
-            @RequestParam String upkind,
+            @RequestParam String kind,
             @RequestParam String uprCd,
             @RequestParam String orgCd) {
 
-        List<AnimalInfo> animalInfos = animalInfoService.getAnimalInfo(startDate, endDate, upkind, uprCd, orgCd);
+        List<AnimalInfo> animalInfos = animalInfoService.getAnimalInfo(startDate, endDate, kind, uprCd, orgCd);
         return ResponseEntity.ok(animalInfos);
     }
 }
