@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.mappers.ImageAnalysisMapper">
+    <select id="findByDesertionNo" parameterType="String" resultType="com.example.test.dto.ImageAnalysisResult">
+        SELECT * FROM ImageAnalysisResult WHERE desertionNo = #{desertionNo}
+    </select>
+
+    <insert id="save" parameterType="com.example.test.dto.ImageAnalysisResult">
+        INSERT INTO ImageAnalysisResult (desertionNo, className1, probability1, className2, probability2, className3, probability3, popfile)
+        VALUES (#{desertionNo}, #{className1}, #{probability1}, #{className2}, #{probability2}, #{className3}, #{probability3}, #{popfile})
+    </insert>
+
+
+
+
+</mapper>
