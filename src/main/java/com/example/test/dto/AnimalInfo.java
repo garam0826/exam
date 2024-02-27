@@ -228,5 +228,5 @@ public class AnimalInfo {
     private String chargeNm;
     private String officetel;
 
-    // 기본 생성자, 매개변수 있는 생성자, getter 및 setter 생략
+
 }
