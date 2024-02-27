@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
-function ModifyContent() {
+function EditContent() {
     const navigate = useNavigate();
     const { idx } = useParams();
     const [board, setBoard] = useState({});
@@ -17,7 +17,7 @@ function ModifyContent() {
             });
     }, [idx]);
 
-    const handleModify = async () => {
+    const handleEdit = async () => {
         await axios.put(`/api/freeboard/${idx}`, board)
             .then(response => {
                 console.log('게시글 수정 성공:', response.data);
@@ -53,11 +53,11 @@ function ModifyContent() {
             </div>
             <br />
             <div>
-                <button onClick={handleModify}>수정 완료</button>
+                <button onClick={handleEdit}>수정 완료</button>
                 <button onClick={() => navigate('/board')}>취소</button>
             </div>
         </div>
     );
 }
 
-export default ModifyContent;
+export default EditContent;

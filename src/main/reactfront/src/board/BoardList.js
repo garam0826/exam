@@ -25,7 +25,7 @@ function BoardList() {
             <ul>
                 {boards.map(board => (
                     <li key={board.idx}>
-                        <Link to={`board/${board.idx}`}>{board.title}</Link> - {board.reg_name}
+                        <Link to={`read/${board.idx}`}>{board.title}</Link> - {board.reg_name}
                     </li>
                 ))}
             </ul>

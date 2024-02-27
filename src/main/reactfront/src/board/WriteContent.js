@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useSelector } from "react-redux";
 
-function AddContent() {
+function WriteContent() {
     const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const userData = useSelector((state) => state.session.userData);
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        const reg_name = userData ? userData.mem_name : '';
+        const currentTime = new Date().toISOString();
+
         axios.post('/api/freeboard/write', {
             title: title,
             content: content,
+            reg_name: reg_name,
+            hit: 0,
+            w_date: currentTime,
+            u_date: currentTime,
         })
             .then(response => {
                 console.log('게시글 작성 성공:', response.data);
@@ -54,4 +63,4 @@ function AddContent() {
     );
 }
 
-export default AddContent;
+export default WriteContent;

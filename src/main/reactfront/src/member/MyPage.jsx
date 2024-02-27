@@ -90,6 +90,15 @@ function MyPage() {
         }
     };
 
+    /*const handleMyBoardComment = async () => {
+        try {
+            const response = await axios.get(  );
+            console.log(response.data);
+        } catch (error) {
+            console.error('내가 작성한 글과 댓글 불러오기 실패:', error);
+        }
+    };*/
+
     return (
         <div>
             <h2>My Page</h2>
@@ -148,6 +157,9 @@ function MyPage() {
                             {message && <p>{message}</p>}
                             {error && <p>{error}</p>}
                         </form>
+                        {/*<form>
+                            <button onClick={handleMyBoardComment}>내가 작성한 글과 댓글</button>
+                        </form>*/}
                     </div>
                 )}
             </div>
